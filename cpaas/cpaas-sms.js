@@ -2,7 +2,6 @@ module.exports = function (RED) {
     'use strict';
     const cpaas = require('@avaya/cpaas');
 
-
     /**
      * JDoc Pening
      * @param {*} toNumber 
@@ -12,18 +11,12 @@ module.exports = function (RED) {
      * @param {*} allowMultiple 
      */
     function buildSMSRequest (toNumber, fromNumber, messageText, callBackBroker, allowMultiple) {
-        let callBackUrl = null;
-        let callBackMethod = null;
-        if (callBackBroker) {
-            callBackMethod = callBackBroker.callBackMethod;
-            callBackUrl = callBackBroker.callBackUrl;
-        }
         return {
             to: toNumber,
             from: fromNumber,
             body: messageText,
-            statusCallback: callBackUrl,
-            statusCallbackMethod: callBackMethod,
+            statusCallback: callBackBroker ? callBackBroker.callBackUrl : null,
+            statusCallbackMethod: callBackBroker ? callBackBroker.callBackMethod : null,
             allowMultiple: allowMultiple,
         };
     };

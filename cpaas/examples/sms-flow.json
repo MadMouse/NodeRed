@@ -1,0 +1,1 @@
+[{"id":"ab09e2ca.42a5e","type":"http in","z":"eb733c6d.eeab5","name":"cpaasStatus","url":"status","method":"post","upload":false,"swaggerDoc":"","x":110,"y":240,"wires":[["dea256af.30c168","837ad72f.1dc308"]]}]
